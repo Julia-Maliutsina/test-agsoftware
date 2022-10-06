@@ -24,13 +24,11 @@ const createArticle = async (request, response) => {
 };
 
 const updateArticle = async (request, response) => {
-  console.log(request.params.id);
   const article = await ArticleModel.findByPk(request.params.id);
   article.set({
     title: request.body.title,
     text: request.body.text,
   });
-  console.log(response);
   await article.save();
   response.status(200).send(article);
 };

@@ -5,4 +5,13 @@ const getAllUsers = async (request, response) => {
   response.status(200).send(users);
 };
 
-export { getAllUsers };
+const updateUser = async (request, response) => {
+  const user = await UserModel.findByPk(request.params.id);
+  user.set({
+    role: request.body.role,
+  });
+  await user.save();
+  response.status(200).send(user);
+};
+
+export { getAllUsers, updateUser };
