@@ -13,4 +13,15 @@ const getAllArticles = async (request, response) => {
   response.status(200).send(articles);
 };
 
-export { getAllArticles };
+const createArticle = async (request, response) => {
+  console.log(request.body);
+  const newArticle = {
+    title: request.body.title,
+    text: request.body.text,
+    authorId: request.body.authorId,
+  };
+  const article = await ArticleModel.create(newArticle);
+  response.status(200).send(article);
+};
+
+export { getAllArticles, createArticle };

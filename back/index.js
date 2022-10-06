@@ -11,6 +11,11 @@ const PORT = 3000;
 const app = express();
 
 app.use(cors());
+app.use(
+  express.urlencoded({
+    extended: true,
+  }),
+);
 app.use(articlesRouter);
 app.use(usersRouter);
 
@@ -18,7 +23,7 @@ async function runServer() {
   try {
     await sequelize.authenticate();
     app.listen(PORT, () => {
-      console.log(`Office Gear server started on port: ${PORT}`);
+      console.log(`Server started on port: ${PORT}`);
     });
   } catch (e) {
     console.log(e);

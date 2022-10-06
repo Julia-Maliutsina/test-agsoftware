@@ -1,11 +1,10 @@
 import { Router } from 'express';
 
-import ArticleModel from '../models/Article.js';
-import UserModel from '../models/User.js';
-import { getAllArticles } from '../controllers/articlesController.js';
+import { getAllArticles, createArticle } from '../controllers/articlesController.js';
 
 const router = Router();
 
 router.get('/articles', getAllArticles);
+router.post('/articles', createArticle);
 
 export { router };
