@@ -1,4 +1,6 @@
 import { Layout } from '../../components/layout';
+import { Button } from '../../components/shared/button';
+import { AddArticleDialog } from '../../components/addArticleDialog';
 import {
   Article,
   ArticleTitle,
@@ -6,14 +8,13 @@ import {
   ArticleDate,
   ArticleAuthor,
   ArticleAuthorName,
-  AddArticleButton,
   AddArticle,
 } from './styled';
 
-const Edit = ({ articles }) => (
+const Edit = ({ articles, toggleAddOpen, isAddOpen }) => (
   <Layout pagename="edit">
-    <AddArticle>
-      <AddArticleButton>Add new article</AddArticleButton>
+    <AddArticle onClick={() => toggleAddOpen()}>
+      <Button>Add new article</Button>
     </AddArticle>
     <div>
       {articles.map((article) => (
@@ -31,6 +32,7 @@ const Edit = ({ articles }) => (
         </Article>
       ))}
     </div>
+    {isAddOpen && <AddArticleDialog toggleAddOpen={toggleAddOpen} />}
   </Layout>
 );
 

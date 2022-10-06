@@ -55,17 +55,6 @@ export const ArticleAuthorName = styled.span`
 
 export const AddArticle = styled.div`
   margin: 15px 0;
-`;
-export const AddArticleButton = styled.button`
-  padding: 5px 8px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  background: #0b5370;
-  color: #fff;
-  &:hover {
-    cursor: pointer;
-    background: #dee7ef;
-    color: #0b5370;
-  }
+  width: fit-content;
+  height: fit-content;
 `;
