@@ -14,7 +14,6 @@ const getAllArticles = async (request, response) => {
 };
 
 const createArticle = async (request, response) => {
-  console.log(request.body);
   const newArticle = {
     title: request.body.title,
     text: request.body.text,
@@ -24,4 +23,16 @@ const createArticle = async (request, response) => {
   response.status(200).send(article);
 };
 
-export { getAllArticles, createArticle };
+const updateArticle = async (request, response) => {
+  console.log(request.params.id);
+  const article = await ArticleModel.findByPk(request.params.id);
+  article.set({
+    title: request.body.title,
+    text: request.body.text,
+  });
+  console.log(response);
+  await article.save();
+  response.status(200).send(article);
+};
+
+export { getAllArticles, createArticle, updateArticle };
