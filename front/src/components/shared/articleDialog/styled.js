@@ -56,3 +56,8 @@ export const NewArticleText = styled.textarea`
   border-radius: 5px;
   border: 1px solid #d0d0d6;
 `;
+export const ButtonWrapper = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin-top: 5px;
+`;
