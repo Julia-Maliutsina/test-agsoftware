@@ -6,9 +6,12 @@ export const MenuWrapper = styled.div`
   height: 60px;
   background: #77b8db;
   position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
+  margin-bottom: 10px;
 `;
 
 export const MenuList = styled.ul`
@@ -63,6 +66,7 @@ export const LogOutButton = styled.button`
   background: #0b5370;
   color: #fff;
   border: none;
+  border-radius: 4px;
   &:hover {
     background: #fff;
     color: #0b5370;

@@ -1,7 +1,8 @@
 import express from 'express';
+import cors from 'cors';
+
 import ArticleModel from './models/Article.js';
 import UserModel from './models/User.js';
-
 import { articlesRouter, usersRouter } from './routes/index.js';
 import { sequelize } from './sequelize.js';
 
@@ -9,6 +10,7 @@ const PORT = 3000;
 
 const app = express();
 
+app.use(cors());
 app.use(articlesRouter);
 app.use(usersRouter);
 

@@ -1,3 +1,3 @@
-export { default as ArticlesPage } from './Articles/Articles';
-export { default as EditPage } from './Edit/Edit';
-export { default as UsersPage } from './Users';
+export { Articles as ArticlesPage } from './Articles';
+export { Edit as EditPage } from './Edit';
+export { Users as UsersPage } from './Users';
