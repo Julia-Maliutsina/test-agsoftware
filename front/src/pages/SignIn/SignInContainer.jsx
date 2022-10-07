@@ -12,7 +12,7 @@ const SignInContainer = () => {
     if (username && password) {
       authorize(username, password, setError);
     } else {
-      console.log('Enter username and password');
+      setError('Fill in all fields');
     }
   };
 

@@ -11,13 +11,11 @@ const generateAccessToken = (id, role) => {
 const logIn = async (request, response) => {
   try {
     const user = await UserModel.findOne({ where: { username: request.body.username } });
-    console.log(request.body);
     if (!user) {
       return response.status(400).send({ message: `User is not found` });
     }
     const validPassword = request.body.password === user.password;
     if (!validPassword) {
-      console.log(request.body.password, user.password);
       return response.status(400).send({ message: `Invalid password` });
     }
     const accessToken = generateAccessToken(user.id, user.role);
