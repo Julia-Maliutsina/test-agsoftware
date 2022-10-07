@@ -26,8 +26,8 @@ const createArticle = async (request, response) => {
 const updateArticle = async (request, response) => {
   const article = await ArticleModel.findByPk(request.params.id);
   article.set({
-    title: request.body.title,
-    text: request.body.text,
+    title: request.body.title || article.title,
+    text: request.body.text || article.text,
   });
   await article.save();
   response.status(200).send(article);

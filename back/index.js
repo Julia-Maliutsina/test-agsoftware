@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import ArticleModel from './models/Article.js';
 import UserModel from './models/User.js';
-import { articlesRouter, usersRouter } from './routes/index.js';
+import { articlesRouter, usersRouter, logInRouter } from './routes/index.js';
 import { sequelize } from './sequelize.js';
 
 const PORT = 4000;
@@ -18,6 +18,7 @@ app.use(
 );
 app.use(articlesRouter);
 app.use(usersRouter);
+app.use(logInRouter);
 
 async function runServer() {
   try {

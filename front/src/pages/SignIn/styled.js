@@ -46,3 +46,20 @@ export const Password = styled.div`
   font-size: 18px;
   text-align: left;
 `;
+
+export const ButtonWrapper = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+  padding: 0;
+  display: inline-block;
+`;
+
+export const Error = styled.div`
+  display: inline-block;
+  color: #b3302b;
+  font-size: 16px;
+  width: 180px;
+  margin: 0 15px;
+  font-weight: 500;
+`;

@@ -1,7 +1,31 @@
+import { useState } from 'react';
+import authorize from '../../api/authorization';
+
 import SignIn from './SignIn';
 
 const SignInContainer = () => {
-  return <SignIn />;
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const logIn = () => {
+    if (username && password) {
+      authorize(username, password, setError);
+    } else {
+      console.log('Enter username and password');
+    }
+  };
+
+  return (
+    <SignIn
+      username={username}
+      password={password}
+      setUsername={setUsername}
+      setPassword={setPassword}
+      logIn={logIn}
+      error={error}
+    />
+  );
 };
 
 export default SignInContainer;

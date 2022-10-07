@@ -9,11 +9,9 @@ const AddArticleContainer = ({ toggleAddOpen }) => {
   const [text, setText] = useState('');
 
   const saveArticle = () => {
-    if (text.length > 50 && title.length > 1) {
+    if (text.length > 2 && title.length > 1) {
       postArticle(title, text);
       toggleAddOpen();
-    } else {
-      console.log('enter title and text');
     }
   };
 

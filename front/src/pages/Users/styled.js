@@ -51,8 +51,12 @@ export const UserRole = styled.div`
   font-size: 16px;
   line-height: 16px;
   background: ${(props) => (props.role === ROLES.admin ? '#F0645E' : '#66FA89')};
+  ${(props) =>
+    !props.currentUser &&
+    `
   &:hover {
     cursor: pointer;
     background: #dee7ef;
-  }
+  }  
+  `}
 `;

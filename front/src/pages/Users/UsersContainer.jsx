@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 import useGetUsers from '../../api/getUsers';
+import userInfo from '../../utils/getUserFromStorage';
 import Users from './Users';
 
 const UsersContainer = () => {
   const { data, isLoading } = useGetUsers();
 
   const [userInEdit, setUserInEdit] = useState({});
+
+  const user = userInfo();
 
   const chooseUserToEdit = (user) => {
     const chosenUser = {
@@ -20,7 +23,12 @@ const UsersContainer = () => {
   return isLoading ? (
     'Loading...'
   ) : (
-    <Users users={data} userInEdit={userInEdit} chooseUserToEdit={chooseUserToEdit} />
+    <Users
+      users={data}
+      userInEdit={userInEdit}
+      chooseUserToEdit={chooseUserToEdit}
+      authorizedUser={user.id}
+    />
   );
 };
 

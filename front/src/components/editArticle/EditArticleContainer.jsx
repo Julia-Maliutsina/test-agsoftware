@@ -13,11 +13,9 @@ const AddArticleContainer = ({ toggleEditOpen, id, titleInit, textInit }) => {
   };
 
   const saveArticle = () => {
-    if (text.length > 50 && title.length > 1) {
+    if (text.length > 2 && title.length > 1) {
       updateArticle(id, title, text);
       closeEdit();
-    } else {
-      console.log('enter title and text');
     }
   };
 
