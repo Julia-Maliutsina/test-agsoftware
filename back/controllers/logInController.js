@@ -1,39 +1,15 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
-
-import UserModel from '../models/User.js';
-import { KEY } from '../routes/config.js';
-
-const generateAccessToken = (id, role) => {
-  const payload = { id, role };
-  return jwt.sign(payload, KEY);
-};
+import authService from '../services/auth.service.js';
 
 const logIn = async (request, response) => {
   try {
     const { username, password } = request.body;
-    if (!username || !password) {
-      return response.status(400).send({ message: `Invalid parameters` });
+    const login = await authService.login({ username, password });
+
+    if (login.status === 'error') {
+      return response.status(400).send({ message: login.message });
     }
 
-    const user = await UserModel.findOne({ where: { username: username } });
-    if (!user) {
-      return response.status(400).send({ message: `User is not found` });
-    }
-
-    const validPassword = bcrypt.compareSync(password, user.password);
-    if (!validPassword) {
-      return response.status(400).send({ message: `Invalid password` });
-    }
-    const accessToken = generateAccessToken(user.id, user.role);
-    const userInfo = {
-      id: user.id,
-      name: user.name,
-      lastName: user.lastName,
-      role: user.role,
-      username: user.username,
-    };
-    response.status(200).send({ token: accessToken, user: userInfo });
+    response.status(200).send({ token: login.accessToken, user: login.userInfo });
     return;
   } catch (e) {
     console.log(e);

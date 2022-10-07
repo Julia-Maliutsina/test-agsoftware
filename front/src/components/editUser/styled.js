@@ -11,9 +11,9 @@ export const DialogWrapper = styled.div`
 `;
 export const Dialog = styled.div`
   position: absolute;
-  top: calc(50% - 250px);
-  left: 20%;
-  width: 300px;
+  top: calc(50% - 105px);
+  left: 40%;
+  width: 20%;
   height: 210px;
   border-radius: 5px;
   background: #c7ddf0;
