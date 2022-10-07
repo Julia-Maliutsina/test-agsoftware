@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 import UserModel from '../models/User.js';
 import { KEY } from '../routes/config.js';
@@ -10,11 +11,17 @@ const generateAccessToken = (id, role) => {
 
 const logIn = async (request, response) => {
   try {
-    const user = await UserModel.findOne({ where: { username: request.body.username } });
+    const { username, password } = request.body;
+    if (!username || !password) {
+      return response.status(400).send({ message: `Invalid parameters` });
+    }
+
+    const user = await UserModel.findOne({ where: { username: username } });
     if (!user) {
       return response.status(400).send({ message: `User is not found` });
     }
-    const validPassword = request.body.password === user.password;
+
+    const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       return response.status(400).send({ message: `Invalid password` });
     }
