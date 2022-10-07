@@ -52,9 +52,7 @@ export const UserRole = styled.div`
   line-height: 16px;
   background: ${(props) => (props.role === ROLES.admin ? '#F0645E' : '#66FA89')};
   &:hover {
-    ${(props) =>
-      props.role !== ROLES.admin &&
-      `cursor: pointer;
-      background: #dee7ef;`}
+    cursor: pointer;
+    background: #dee7ef;
   }
 `;

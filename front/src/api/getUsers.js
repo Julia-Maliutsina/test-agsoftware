@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useGetUsers = () =>
   useQuery('users', async () => {
-    const response = await axios.get('http://localhost:3000/users');
+    const response = await axios.get('http://localhost:4000/users');
     return response.data;
   });
 

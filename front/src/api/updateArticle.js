@@ -8,7 +8,7 @@ const updateArticle = async (id, title, text) => {
   JSON.stringify(updatedArticle);
   const config = {
     method: 'put',
-    url: `http://localhost:3000/articles/${id}`,
+    url: `http://localhost:4000/articles/${id}`,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },

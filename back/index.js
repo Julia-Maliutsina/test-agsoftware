@@ -6,7 +6,7 @@ import UserModel from './models/User.js';
 import { articlesRouter, usersRouter } from './routes/index.js';
 import { sequelize } from './sequelize.js';
 
-const PORT = 3000;
+const PORT = 4000;
 
 const app = express();
 

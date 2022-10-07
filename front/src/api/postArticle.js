@@ -11,7 +11,7 @@ const postArticle = async (title, text) => {
   JSON.stringify(newArticle);
   const config = {
     method: 'post',
-    url: 'http://localhost:3000/articles',
+    url: 'http://localhost:4000/articles',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
